@@ -1,0 +1,9 @@
+[submodule "mqtt-balena"]
+	path = mqtt-balena
+	url = https://github.com/adrianbenavides/mqtt-balena
+[submodule "shared/lib/pubsubclient"]
+	path = shared/lib/pubsubclient
+	url = https://github.com/knolleary/pubsubclient
+[submodule "shared/lib/ArduinoJson"]
+	path = shared/lib/ArduinoJson
+	url = https://github.com/bblanchon/ArduinoJson
