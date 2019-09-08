@@ -105,7 +105,7 @@ void NodeMcu::deserializeSettings()
 
 void NodeMcu::setupWifi()
 {
-    Serial.printf("Connecting to %s ...", this->ssid);
+    Serial.printf("Connecting to %s...", this->ssid);
     WiFi.begin(this->ssid, this->password);
     while (WiFi.status() != WL_CONNECTED)
     {

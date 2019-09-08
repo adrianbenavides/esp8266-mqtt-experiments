@@ -3,6 +3,7 @@
 dirs=(
     "mqtt-0-config-devices"
     "mqtt-1-two-devices"
+    "mqtt-2-last-will"
 )
 
 for dir in ${dirs[@]}
