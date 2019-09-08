@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <ArduinoJson.h>
 
 #include "nodemcu.h"
 const bool formatDevice = true;

@@ -4,12 +4,16 @@
 			"path": "shared"
 		},
 		{
+			"name": "mqtt-0-config-devices",
+			"path": "mqtt-0-config-devices"
+		},
+		{
 			"name": "mqtt-1-two-devices",
 			"path": "mqtt-1-two-devices"
 		},
 		{
-			"name": "mqtt-0-config-devices",
-			"path": "mqtt-0-config-devices"
+			"name": "mqtt-2-last-will",
+			"path": "mqtt-2-last-will"
 		}
 	],
 	"settings": {
@@ -57,7 +61,16 @@
 			"typeinfo": "cpp",
 			"random": "cpp",
 			"cstring": "cpp",
-			"iomanip": "cpp"
+			"iomanip": "cpp",
+			"cstddef": "cpp",
+			"algorithm": "cpp",
+			"map": "cpp",
+			"memory": "cpp",
+			"memory_resource": "cpp",
+			"optional": "cpp",
+			"set": "cpp",
+			"string_view": "cpp",
+			"system_error": "cpp"
 		}
 	}
 }
