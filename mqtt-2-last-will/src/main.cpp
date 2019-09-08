@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #define LED_PIN D1
 
 #include "nodemcu.h"
@@ -7,8 +5,6 @@ const bool formatDevice = false;
 const char *mcuSettings = "";
 NodeMcu nodeMcu{mcuSettings};
 
-#include <PubSubClient.h>
-#include <ESP8266WiFi.h>
 #include "mqtt.h"
 const char *mqttServerAddress = "192.168.1.42";
 uint mqttPort = 1883;

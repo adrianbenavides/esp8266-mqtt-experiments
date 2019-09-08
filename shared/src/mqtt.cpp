@@ -1,4 +1,3 @@
-#include <PubSubClient.h>
 #include "mqtt.h"
 
 Mqtt::Mqtt(const char *serverAddress, uint port, std::vector<std::string> &subscriptions)

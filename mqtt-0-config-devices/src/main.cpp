@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #include "nodemcu.h"
 const bool formatDevice = true;
 const char *mcuSettings = "{\"device_id\":2,\"port\":80,\"ssid\":\"WIFI_SSID\",\"password\":\"WIFI_PASS\"}";
