@@ -1,18 +1,23 @@
 #include "nodemcu.h"
 
-NodeMcu::NodeMcu(const char *settings)
+NodeMcu::NodeMcu()
 {
-    this->settings = (char *)settings;
+    this->settings = "";
 }
 
-void NodeMcu::setup(bool format)
+NodeMcu::NodeMcu(std::string &settings)
 {
-    this->setupFilesystem(format);
+    this->settings = settings;
+}
+
+void NodeMcu::setup()
+{
+    this->setupFilesystem();
     this->deserializeSettings();
     this->setupWifi();
 }
 
-void NodeMcu::setupFilesystem(bool format)
+void NodeMcu::setupFilesystem()
 {
     if (SPIFFS.begin())
     {
@@ -24,7 +29,7 @@ void NodeMcu::setupFilesystem(bool format)
         ESP.restart();
     }
 
-    if (format)
+    if (!this->settings.empty())
     {
         Serial.print(F("Formatting filesystem... "));
         if (SPIFFS.format())
@@ -43,6 +48,8 @@ void NodeMcu::deserializeSettings()
 {
     if (!SPIFFS.exists("/config.json"))
     {
+        assert(!this->settings.empty());
+
         Serial.print(F("Creating config.json file... "));
         File configFile = SPIFFS.open("/config.json", "w");
         if (!configFile)
@@ -51,10 +58,7 @@ void NodeMcu::deserializeSettings()
             ESP.reset();
         }
 
-        bool settingsStringIsEmpty = this->settings && !this->settings[0];
-        assert(!settingsStringIsEmpty);
-
-        configFile.write(this->settings);
+        configFile.write(this->settings.c_str());
         configFile.close();
         Serial.println(F("done"));
     }

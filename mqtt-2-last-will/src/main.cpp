@@ -1,9 +1,9 @@
 #define LED_PIN D1
+#define MQTT_KEEPALIVE 15
+#define MQTT_SOCKET_TIMEOUT 15
 
 #include "nodemcu.h"
-const bool formatDevice = false;
-const char *mcuSettings = "";
-NodeMcu nodeMcu{mcuSettings};
+NodeMcu nodeMcu;
 
 #include "mqtt.h"
 const char *mqttServerAddress = "192.168.1.42";
@@ -26,7 +26,7 @@ void setup()
     pinMode(LED_PIN, OUTPUT);
     digitalWrite(LED_PIN, LOW);
 
-    nodeMcu.setup(formatDevice);
+    nodeMcu.setup();
     mqtt.setup(pubsub, mqttOnMessageReceived, nodeMcu.deviceId);
 }
 

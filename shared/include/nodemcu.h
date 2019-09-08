@@ -7,19 +7,20 @@
 class NodeMcu
 {
 public:
-    NodeMcu(const char *settings);
+    NodeMcu();
+    NodeMcu(std::string &settings);
 
     uint deviceId;
 
-    void setup(bool format);
+    void setup();
 
 private:
-    const char *settings;
+    std::string settings;
     uint port;
     const char *ssid;
     const char *password;
 
-    void setupFilesystem(bool format);
+    void setupFilesystem();
     void deserializeSettings();
     void setupWifi();
 };

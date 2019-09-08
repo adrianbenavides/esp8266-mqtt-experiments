@@ -2,9 +2,7 @@
 #define BUTTON_PIN D2
 
 #include "nodemcu.h"
-const bool formatDevice = false;
-const char *mcuSettings = "";
-NodeMcu nodeMcu{mcuSettings};
+NodeMcu nodeMcu;
 
 #include "mqtt.h"
 const char *mqttServerAddress = "192.168.1.42";
@@ -29,7 +27,7 @@ void setup()
     pinMode(BUTTON_PIN, OUTPUT);
     digitalWrite(BUTTON_PIN, HIGH);
     
-    nodeMcu.setup(formatDevice);
+    nodeMcu.setup();
     mqtt.setup(pubsub, mqttOnMessageReceived, nodeMcu.deviceId);
 }
 
