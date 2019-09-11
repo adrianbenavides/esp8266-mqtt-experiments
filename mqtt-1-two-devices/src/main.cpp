@@ -84,6 +84,6 @@ void buttonPressedListener()
 
     String deviceIdAsString(nodeMcu.deviceId);
     String topic = "/client/" + deviceIdAsString + "/led";
-    Serial.printf("Publish message: %s, son topic: %s\n", String(lastLedStatus).c_str(), topic.c_str());
+    Serial.printf("Publish message: %s, on topic: %s\n", String(lastLedStatus).c_str(), topic.c_str());
     pubsub.publish(topic.c_str(), String(lastLedStatus).c_str());
 }
