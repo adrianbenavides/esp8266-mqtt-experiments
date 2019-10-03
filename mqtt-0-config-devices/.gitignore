@@ -4,9 +4,14 @@
 .vscode/launch.json
 .vscode/ipch
 
-# files from shared directory
+# files from arduino-helpers
+makefile
 lib
+include/lora.h
 include/mqtt.h
+include/neo6m.h
 include/nodemcu.h
+src/lora.cpp
 src/mqtt.cpp
+src/neo6m.cpp
 src/nodemcu.cpp
