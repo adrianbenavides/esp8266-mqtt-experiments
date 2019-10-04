@@ -2,6 +2,10 @@
 %:
 	@:
 
+.PHONY: submodules_init
+submodules_init:
+	@git submodule update --init --recursive
+
 .PHONY: submodules_update
 submodules_update:
 	@git submodule foreach git pull origin master
