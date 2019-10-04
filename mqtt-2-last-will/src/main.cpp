@@ -47,7 +47,7 @@ void mqttOnMessageReceived(char *rtopic, byte *rpayload, unsigned int length)
 void lastWillMessageListener(std::string topic, std::string payload)
 {
     if (topic.find("/client/") == std::string::npos
-        && topic.find("/status") == std::string::npos)
+        || topic.find("/status") == std::string::npos)
         return;
 
     String deviceIdAsString(nodeMcu.deviceId);

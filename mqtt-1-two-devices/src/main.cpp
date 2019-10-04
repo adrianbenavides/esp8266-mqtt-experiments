@@ -5,7 +5,7 @@
 NodeMcu nodeMcu;
 
 #include "mqtt.h"
-const char *mqttServerAddress = "192.168.1.42";
+const char *mqttServerAddress = "192.168.1.43";
 uint mqttPort = 1883;
 std::vector<std::string> mqttSubscriptions = {"/client/+/led"};
 WiFiClient wifiClient;
@@ -26,7 +26,7 @@ void setup()
     digitalWrite(LED_PIN, LOW);
     pinMode(BUTTON_PIN, OUTPUT);
     digitalWrite(BUTTON_PIN, HIGH);
-    
+
     nodeMcu.setup();
     mqtt.setup(pubsub, mqttOnMessageReceived, nodeMcu.deviceId);
 }
@@ -42,14 +42,14 @@ void mqttOnMessageReceived(char *rtopic, byte *rpayload, unsigned int length)
     std::string topic = std::string(rtopic);
     std::string payload = mqtt.payloadToString(rpayload, length);
     Serial.printf("Message arrived. Topic: %s, payload: %s\n", topic.c_str(), payload.c_str());
-    
+
     ledsMessageListener(topic, payload);
 }
 
 void ledsMessageListener(std::string topic, std::string payload)
 {
     if (topic.find("/client/") == std::string::npos
-        && topic.find("/led") == std::string::npos)
+        || topic.find("/led") == std::string::npos)
         return;
 
     String deviceIdAsString(nodeMcu.deviceId);
